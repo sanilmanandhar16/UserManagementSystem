@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+ 
+  
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #021212;
+}
+
+.wrapper {
+  width: 380px;
+  padding: 40px 30px 50px 30px;
+  backdrop-filter: blur(35px);
+  
+  text-align: center;
+  box-shadow: 10px 10px 15px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  margin-top: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapper header {
+  color: #42711e;
+}
+
+.wrapper form {
+  width: 100%;
+  margin-top: 50px;
+}
+.wrapper header {
+  font-size: 30px;
+  font-weight: 600;
+}
+.wrapper header fa-icon{
+  border: 2px solid rgb(133, 153, 21);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+form .field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+form .field .input-area {
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+
+form input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 45px;
+  font-size: 18px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  border-bottom: 3px solid #a9c042;
+  transition: all 0.2s ease;
+}
+
+form .field input:focus,
+form .field.valid input {
+  border-color: #85bf98;
+}
+
+form input::placeholder {
+  color: #9daf54;
+  font-size: 17px;
+}
+
+.wrapper a {
+  color: #29419f;
+  text-decoration: none;
+}
+
+form button[type="submit"] {
+  height: 50px;
+  width: 200px;
+  margin-top: 30px;
+  color: #fff;
+  padding: 0;
+  font-size: 18px;
+  border: none;
+  background: #a9840b;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all 0.8s ease;
+  background: linear-gradient(
+    -135deg,
+    transparent 22px,
+    #a17204 22px,
+    #162d78 100%
+)
+top right,
+linear-gradient(
+    -45deg,
+    transparent 22px,
+    #a17204 22px,
+    #0a5825 100%
+)
+bottom right;
+background-size: 100% 50%;
+background-repeat: no-repeat;
+}
+
+.error {
+  color: red;
+  font-weight: 550;
+}

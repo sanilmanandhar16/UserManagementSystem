@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+<div class="wrapper">
+  <header><fa-icon [icon]="faUserPlus"></fa-icon>Add User</header>
+
+
+  <form [formGroup]="userForm" (ngSubmit)="addUser()">
+    <div class="field name">
+      <div class="input-area">
+        <input type="text" id="name" placeholder="User Name" formControlName="name" />
+      </div>
+    </div>
+
+    <div class="field email">
+      <div class="input-area">
+        <input type="text" id="email" placeholder="Email" formControlName="email" />
+      </div>
+    </div>
+    <div class="field address">
+      <div class="input-area">
+        <input type="text" id="address" placeholder="Address" formControlName="address" />
+      </div>
+    </div>
+
+    <div class="field phone" formArrayName="phones">
+      <div class="input-area" *ngFor="let phone of phoneNumbers.controls; let i = index" [formGroupName]="i">
+        <input type="text" id="phone" [placeholder]="'Phone number ' + (i + 1)" formControlName="phone" />
+        <button type="button" class="remove-button" (click)="removePhone(i)" [disabled]="phoneNumbers.length === 1"><fa-icon [icon]="faCircleXmark"></fa-icon></button>
+      </div>
+      <button type="button" class="add-button" (click)="addPhone()">Add Phone Number</button>
+    </div>
+    
+        
+    
+   
+    
+    
+    <div class="radio-container">
+      <ul>
+        <li>
+          <input type="radio" id="male" value="male" name="gender" formControlName="gender" />
+          <label for="male">Male</label>
+          <div class="check">
+            <div class="inside"></div>
+          </div>
+        </li>
+        <li>
+          <input type="radio" id="female" value="female" name="gender" formControlName="gender" />
+          <label for="female">Female</label>
+          <div class="check">
+            <div class="inside"></div>
+          </div>
+        </li>
+        <li>
+          <input type="radio" id="other" value="other" name="gender" formControlName="gender" />
+          <label for="other">Other</label>
+          <div class="check">
+            <div class="inside"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <br />
+    <div class="buttons">
+      <button class="add-user" type="submit" value="Submit" id="btn">
+        Add User
+      </button>
+      <button class="back-to-user" (click)="backtoUsers()">Go Back</button>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

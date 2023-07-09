@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+
+<div class="user">
+  <br /><br /><br />
+  <div class="user-header">
+    <div class="search-box">
+      <button class="btn-search"><fa-icon [icon]="faSearch"></fa-icon></button>
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (input)="filterUsers()"
+        class="input-search"
+        placeholder="Search..."
+      />
+    </div>
+
+    <div class="user-create">
+      <!-- <div class="create-button"></div> -->
+      <button class="create-button_btn" (click)="createUser()">
+        <fa-icon [icon]="faUserPlus"></fa-icon>Create User
+      </button>
+    </div>
+  </div>
+
+  <br />
+  <div class="table-container">
+  <div class="user-table">
+    <table id="usersTable">
+      <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Gender</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let phone of user.phones">{{ phone }}</li>
+          </ul>
+        </td>
+        <td>{{ user.gender }}</td>
+        <td>
+          <div class="edit-dlt">
+            <button class="edit" (click)="editUser(user)">
+              <fa-icon [icon]="faUserPen"></fa-icon>
+            </button>
+            <button class="dlt" (click)="deleteUser(user)">
+              <fa-icon [icon]="faUserSlash"></fa-icon>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="users.length === 0">
+        <td style="text-align: center" colspan="5">No users added</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+</div>
+<div class="downloads">
+    
+  <div class="download-btn" (click)="downloadImage()">
+    Download Users Table<fa-icon [icon]="faCircleDown"></fa-icon>
+  </div>
+  <div class="download-btn" (click)="downloadImagePdf()">
+    Download PDF<fa-icon [icon]="faCircleDown"></fa-icon>
+  </div>
+</div>

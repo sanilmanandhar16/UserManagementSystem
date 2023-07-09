@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+
+<div class="wrapper">
+    <header><fa-icon [icon]="faEdit"></fa-icon>Edit User</header>
+  
+  <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+    <div class="field name">
+      <div class="input-area">
+        <input type="text" id="name" placeholder="User Name" formControlName="name">
+      </div>
+    </div>
+
+    <div class="field email">
+      <div class="input-area">
+        <input type="text" id="email" placeholder="Email" formControlName="email">
+      </div>
+    </div>
+    <div class="field address">
+      <div class="input-area">
+        <input type="text" id="address" placeholder="Address" formControlName="address">
+      </div>
+    </div>
+    <div class="field phone">
+      <div class="input-area">
+        <input type="text" id="phone" placeholder="Phone" formControlName="phone">
+      </div>
+    </div>
+    <div class="radio-container">
+      <ul>
+        <li>
+          <input type="radio" id="gendermale" value="Male" name="gender" formControlName="gender">
+          <label for="gendermale">Male</label>
+          <div class="check"><div class="inside"></div></div>
+        </li>
+        <li>
+          <input type="radio" id="genderfemale" value="Female" name="gender" formControlName="gender">
+          <label for="genderfemale">Female</label>
+          <div class="check"><div class="inside"></div></div>
+        </li>
+        <li>
+          <input type="radio" id="genderother" value="Other" name="gender" formControlName="gender">
+          <label for="genderother">Other</label>
+          <div class="check"><div class="inside"></div></div>
+        </li>
+      </ul>
+    </div>
+    
+    <br>
+    <div class="buttons">
+      <button class="update-user" type="submit" value="Submit" id="btn">Update User</button>
+      <button class="cancel" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>
